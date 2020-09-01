@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLController">
+   <children>
+      <BorderPane fx:id="borPane" layoutY="-37.0" style="-fx-background-color: lightgrey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="Spiel">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#act_itmNew" text="Neues Spiel" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadGame" text="Spielstand laden" />
+                        <MenuItem fx:id="btnSave" mnemonicParsing="false" onAction="#saveGame" text="Spielstand speichern" />
+                    <MenuItem mnemonicParsing="false" onAction="#actClose" text="Spiel beenden" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Strategie">
+                    <items>
+                        <CheckMenuItem fx:id="checkItmDefensive" mnemonicParsing="false" onAction="#actDefensive" text="Defensiv" />
+                        <CheckMenuItem fx:id="checkItmOffensive" mnemonicParsing="false" onAction="#actOffensive" text="Offensiv" />
+                    </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Schwierigkeitsstufe">
+                  <items>
+                        <CheckMenuItem id="1" fx:id="checkItmDiff0" mnemonicParsing="false" onAction="#actnMenuDifficulty0" text="Leicht" />
+                        <CheckMenuItem id="2" fx:id="checkItmDiff1" mnemonicParsing="false" onAction="#actnMenuDifficulty1" text="Normal" />
+                        <CheckMenuItem id="3" fx:id="checkItmDiff2" mnemonicParsing="false" onAction="#actMenuDifficulty2" text="Schwer" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <AnchorPane fx:id="anchorPn" BorderPane.alignment="CENTER" StackPane.alignment="CENTER">
+               <children>
+ <GridPane fx:id="main_grid" alignment="CENTER" hgap="10.0" layoutX="81.0" layoutY="19.0" minHeight="300.0" minWidth="300.0" snapToPixel="false" style="-fx-background-color: lightblue;" vgap="10.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="480.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="480.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="228.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="228.0" valignment="CENTER" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <GridPane onMouseClicked="#mouseClickGridPane" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                              <GridPane onMouseClicked="#mouseClickGridPane" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane onMouseClicked="#mouseClickGridPane" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane onMouseClicked="#mouseClickGridPane" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                  <Button fx:id="btn0Right" layoutX="77.0" layoutY="25.0" mnemonicParsing="false" onAction="#actBtn0Right" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="20.0" />
+                  <Button fx:id="btn0Left" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" onAction="#actBtn0Left" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="66.0" />
+                  <Button fx:id="btn1Left" layoutX="467.0" layoutY="25.0" mnemonicParsing="false" onAction="#actBtn1Left" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="20.0" />
+                  <Button fx:id="btn3Left" layoutX="532.0" layoutY="492.0" mnemonicParsing="false" onAction="#actBtn3Left" AnchorPane.bottomAnchor="85.0" AnchorPane.rightAnchor="14.0" />
+                  <Button fx:id="btn2Right" layoutX="14.0" layoutY="492.0" mnemonicParsing="false" onAction="#actBtn2Right" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="14.0" />
+                  <Button fx:id="btn2Left" layoutX="77.0" layoutY="555.0" mnemonicParsing="false" onAction="#actBtn2Left" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="77.0" />
+                  <Button fx:id="btn1Right" layoutX="508.0" layoutY="66.0" mnemonicParsing="false" onAction="#actBtn1Right" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="66.0" />
+                  <Button fx:id="btn3Right" layoutX="467.0" layoutY="555.0" mnemonicParsing="false" onAction="#actBtn3Right" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="67.0" />
+               </children>
+            </AnchorPane>
+         </center>
+         <right>
+            <VBox prefHeight="616.0" prefWidth="270.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ToolBar prefHeight="40.0" prefWidth="200.0">
+                    <items>
+                        <Button fx:id="btnUndo" mnemonicParsing="false" onAction="#actBtnUndo" text="Rückgängig" />
+                        <Button fx:id="btnRedo" mnemonicParsing="false" onAction="#actBtnRedo" text="Wiederholen" />
+                    </items>
+                  </ToolBar>
+                  <TextArea fx:id="textArea" prefHeight="578.0" prefWidth="215.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </right>
+      </BorderPane>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
